@@ -16,26 +16,36 @@ export const About = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           {/* Left Column: Text Content */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            // FIX 1: darker text for light mode (gray-700)
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.2,
+                },
+              },
+            }}
             className="font-light text-gray-700 dark:text-gray-300 text-lg leading-relaxed"
           >
-            <p className="mb-6">
-              The {/* FIX 2: Darker green (emerald-600) for Light Mode */}
-              <span className="font-semibold text-emerald-600 dark:text-[#10F480]">
-                Blockchain Club Chandigarh University
-              </span>{' '}
-              is a student-driven ecosystem dedicated to demystifying
-              decentralized technology.
-            </p>
-            <p>
-              We believe in the power of Web3 to reshape the future. Our
-              community acts as a bridge between curiosity and expertise,
-              offering a platform where students can collaborate, code, and
-              create the next generation of decentralized applications.
-            </p>
+            <motion.p
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { type: 'spring', damping: 20 } },
+              }}
+              className="mb-6"
+            >
+              The <span className="font-semibold text-emerald-600 dark:text-[#10F480]">Blockchain Club Chandigarh University</span> is a student-driven ecosystem dedicated to demystifying decentralized technology.
+            </motion.p>
+            <motion.p
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { type: 'spring', damping: 20 } },
+              }}
+            >
+              We believe in the power of Web3 to reshape the future. Our community acts as a bridge between curiosity and expertise, offering a platform where students can collaborate, code, and create the next generation of decentralized applications.
+            </motion.p>
           </motion.div>
 
           {/* Right Column: Image/Logo */}
@@ -63,18 +73,22 @@ export const About = () => {
         </div>
 
         {/* Bottom Cards Grid */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
+          className="grid md:grid-cols-3 gap-6"
+        >
           {ABOUT_CARDS.map((card, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              // FIX 3: Better card background and border for Light Mode
-              className="p-6 border border-gray-200 dark:border-gray-200 dark:border-white/10 rounded-xl bg-gray-50 dark:bg-white/5 hover:border-emerald-500 dark:hover:border-[#10F480]/50 hover:bg-white dark:hover:bg-white/10 transition-colors duration-300 shadow-sm dark:shadow-none"
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { type: 'spring', damping: 20 } }
+              }}
+              className="p-6 border border-gray-200 dark:border-white/10 rounded-xl bg-gray-50 dark:bg-white/5 hover:border-emerald-500 dark:hover:border-[#10F480]/50 hover:bg-white dark:hover:bg-white/10 transition-colors duration-300 shadow-sm dark:shadow-none"
             >
-              {/* FIX 4: Darker Green Title for Light Mode */}
               <h3 className="text-xl font-mono font-bold text-emerald-700 dark:text-white mb-3">
                 {card.title}
               </h3>
@@ -83,7 +97,7 @@ export const About = () => {
               </p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

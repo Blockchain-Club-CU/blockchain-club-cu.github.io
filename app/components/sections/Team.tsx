@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Linkedin, Users, ChevronLeft, ChevronRight } from 'lucide-react';
 import { SectionHeader } from '../ui/SectionHeader';
 import { useState, useEffect, useCallback } from 'react';
+import { SpotlightCard } from '../ui/SpotlightCard';
 
 const CARDS_PER_PAGE = {
   sm: 1,
@@ -47,7 +48,7 @@ export const Team = () => {
   // Auto-advance
   useEffect(() => {
     if (!hasTeam || isPaused) return;
-    const timer = setInterval(next, 3500);
+    const timer = setInterval(next, 2000); // 2 seconds per slide
     return () => clearInterval(timer);
   }, [hasTeam, isPaused, next]);
 
@@ -106,9 +107,9 @@ export const Team = () => {
                   className="flex gap-8 justify-center"
                 >
                   {visibleMembers.map((member) => (
-                    <div
+                    <SpotlightCard
                       key={member.id}
-                      className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] flex-shrink-0 group text-center"
+                      className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] flex-shrink-0 group text-center p-6 h-full flex flex-col"
                     >
                       {/* Avatar */}
                       <div className="relative w-48 h-48 mx-auto mb-4 rounded-full overflow-hidden border-2 border-black/10 dark:border-white/10 group-hover:border-[#10F480] transition-all duration-300">
@@ -151,7 +152,7 @@ export const Team = () => {
                           </a>
                         </div>
                       )}
-                    </div>
+                    </SpotlightCard>
                   ))}
                 </motion.div>
               </AnimatePresence>

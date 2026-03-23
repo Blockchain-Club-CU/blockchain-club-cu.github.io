@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.text-gradient {
+  background-color: #1c1c1c;
+  color: #ffffff;
+}
+
 :root {
   background-color: #1c1c1c;
   color: #ffffff;
@@ -21,3 +26,4 @@ html {
     transition-timing-function: ease;
   }
 }
+

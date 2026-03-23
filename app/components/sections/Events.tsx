@@ -7,6 +7,8 @@ import { EVENTS } from '@/app/data/constants';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
+import confetti from 'canvas-confetti';
+import { SpotlightCard } from '../ui/SpotlightCard';
 
 export const Events = () => {
   const { theme } = useTheme();
@@ -18,8 +20,17 @@ export const Events = () => {
 
   if (!mounted) return null;
 
-  // Check if events exist
-  const hasEvents = EVENTS && EVENTS.length > 0;
+  // Filter for events whose date is today or in the future
+  const upcomingEvents = EVENTS.filter((event) => {
+    // Attempt to parse the date. If failed, it might be an invalid format, keep it visible safely or hide.
+    // 'February 26, 2026' parses correctly in JS Date.
+    const eventDate = new Date(event.date);
+    if (isNaN(eventDate.getTime())) return true; // fallback if date format is weird
+    eventDate.setHours(23, 59, 59, 999); // end of the day
+    return eventDate.getTime() >= Date.now();
+  });
+  
+  const hasEvents = upcomingEvents.length > 0;
 
   return (
     <section
@@ -41,15 +52,24 @@ export const Events = () => {
               <CalendarOff size={32} />
             </div>
             <h3 className="text-xl md:text-2xl font-bold font-mono text-gray-900 dark:text-white mb-2">
-              No Upcoming Events
+              New Events Coming Soon...
             </h3>
             <p className="text-gray-600 dark:text-gray-400 max-w-md mb-8">
-              We are currently brewing something special for the next semester.
-              Join our WhatsApp community to be the first to know when we
-              launch!
+              We are currently brewing something special. Join our WhatsApp
+              community to be the first to know when we launch!
             </p>
             <a
-              href="#contact" // Or link to your Discord/WhatsApp
+              href="https://chat.whatsapp.com/CXY53ovXAas7bWBfwRnEsa?utm_source=website"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => {
+                 confetti({
+                   particleCount: 100,
+                   spread: 70,
+                   origin: { y: 0.6 },
+                   colors: ['#10F480', '#ffffff', '#000000']
+                 });
+              }}
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#10F480]/10 text-emerald-600 dark:text-[#10F480] border border-[#10F480]/20 rounded hover:bg-[#10F480] hover:text-black dark:hover:text-[#1C1C1C] transition-all duration-300 font-mono font-bold text-sm"
             >
               <Bell size={16} />
@@ -59,16 +79,17 @@ export const Events = () => {
         ) : (
           /* ---------------- EVENTS GRID ---------------- */
           <div className="grid gap-6 md:grid-cols-2">
-            {EVENTS.map((event, idx) => (
+            {upcomingEvents.map((event, idx) => (
               <motion.div
                 key={event.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -10, scale: 1.02 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="group relative border border-gray-200 dark:border-white/10 rounded-xl bg-gray-50 dark:bg-white/5 hover:border-emerald-500 dark:hover:border-[#10F480]/50 hover:bg-white dark:hover:bg-white/10 transition-colors duration-300 shadow-sm dark:shadow-none"
+                transition={{ type: "spring", stiffness: 300, delay: idx * 0.1 }}
               >
-                <div className="p-6">
+                <SpotlightCard className="h-full">
+                  <div className="p-6 flex flex-col h-full">
                   <div className="flex justify-between items-start mb-4">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10F480]/10 text-emerald-600 dark:text-[#10F480] text-xs font-mono">
                       <Calendar size={12} />
@@ -110,11 +131,15 @@ export const Events = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <button className="w-full py-3 border border-gray-600 dark:border-white/20 text-gray-900 dark:text-white font-mono text-sm hover:bg-[#10F480] hover:text-black dark:hover:text-[#1C1C1C] hover:border-[#10F480] transition-all duration-300 rounded">
+                    <motion.button 
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="w-full py-3 border border-gray-600 dark:border-white/20 text-gray-900 dark:text-white font-mono text-sm hover:bg-[#10F480] hover:text-black dark:hover:text-[#1C1C1C] hover:border-[#10F480] transition-colors duration-300 rounded">
                       REGISTER NOW
-                    </button>
+                    </motion.button>
                   </a>
-                </div>
+                  </div>
+                </SpotlightCard>
               </motion.div>
             ))}
           </div>

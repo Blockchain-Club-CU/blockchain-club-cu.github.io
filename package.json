@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "canvas-confetti": "^1.9.4",
     "framer-motion": "^11.0.8",
+    "googleapis": "^171.4.0",
     "lucide-react": "^0.344.0",
     "next": "^16.1.6",
     "next-themes": "^0.4.6",
@@ -17,6 +19,7 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@types/canvas-confetti": "^1.9.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

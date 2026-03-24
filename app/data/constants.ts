@@ -130,6 +130,20 @@ export const TEAM_MEMBERS: MemberItem[] = [
 
 export const EVENTS: EventItem[] = [
   {
+    id: 2,
+    title: `CHAINQUEST`,
+    imageURL: 'event_posters/chainquest.jpeg',
+    imageDarkURL: 'event_posters/chainquest.jpeg',
+    date: 'March 28, 2026',
+    time: '9:30 AM Onwards',
+    location: 'D3 Seminar Hall',
+    description: `Build the future of Decentralisation! Showcase your innovative ideas, compete with the brightest minds, and win exciting prizes, certificates, and exclusive swag.`,
+    status: 'Upcoming',
+    link: '',
+    googleSheetId: '',
+    formFields: [],
+  },
+  {
     id: 1,
     title: `TRANSFORMING INDUSTRY PAIN-POINTS INTO STARTUP SOLUTIONS WITH AI & BLOCKCHAIN`,
     imageURL: 'event_posters/TransformingIndustry_26_02_2026_light.png',

@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, MapPin, CalendarOff, Bell } from 'lucide-react'; // Added CalendarOff and Bell
 import { SectionHeader } from '../ui/SectionHeader';
 import { EVENTS } from '@/app/data/constants';
@@ -13,6 +13,7 @@ import { SpotlightCard } from '../ui/SpotlightCard';
 export const Events = () => {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -32,11 +33,31 @@ export const Events = () => {
   
   const hasEvents = upcomingEvents.length > 0;
 
+  const handleRegisterClick = (e: React.MouseEvent, link: string) => {
+    if (!link) {
+      e.preventDefault();
+      setToastMessage("Registration Coming Soon...");
+      setTimeout(() => setToastMessage(null), 3000);
+    }
+  };
+
   return (
     <section
       id="events"
       className="py-24 bg-white dark:bg-[#1C1C1C] relative border-t border-white/5"
     >
+      <AnimatePresence>
+        {toastMessage && (
+          <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            className="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 bg-[#10F480] text-black px-6 py-3 rounded-md shadow-lg font-mono font-bold border-2 border-green-400"
+          >
+            {toastMessage}
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader title="UPCOMING EVENTS" subtitle="Join The Action" />
 
@@ -127,9 +148,10 @@ export const Events = () => {
                   </div>
 
                   <a
-                    href={event.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={event.link || '#'}
+                    target={event.link ? "_blank" : undefined}
+                    rel={event.link ? "noopener noreferrer" : undefined}
+                    onClick={(e) => handleRegisterClick(e, event.link)}
                   >
                     <motion.button 
                       whileHover={{ scale: 1.05 }}

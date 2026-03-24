@@ -1,6 +1,6 @@
 export interface FormField {
   name: string; // The label shown to the user (e.g., "Full Name", "Roll No")
-  type: string; // "text", "email", "number", etc.
+  type: string; // "text", "email", "number", "UID" etc.
   required: boolean;
 }
 

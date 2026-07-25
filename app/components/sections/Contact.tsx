@@ -1,5 +1,7 @@
-import { MessageCircle, Linkedin, Instagram, Mail } from 'lucide-react';
+import { MessageCircle, Mail } from 'lucide-react';
 import { SectionHeader } from '../ui/SectionHeader';
+import LinkedinIcon from '../icons/LinkedIn';
+import InstagramIcon from '../icons/Instagram';
 
 export const Connect = () => {
   return (
@@ -24,15 +26,15 @@ export const Connect = () => {
               color: 'hover:text-green-500',
             },
             {
-              icon: Linkedin,
+              icon: LinkedinIcon,
               label: 'LinkedIn',
-              href: 'https://linkedin.com/company/blockchain-club-cu?utm_source=website',
+              href: 'https://www.linkedin.com/company/tokentitan-club-cu?utm_source=website',
               color: 'hover:text-blue-500',
             },
             {
-              icon: Instagram,
+              icon: InstagramIcon,
               label: 'Instagram',
-              href: 'https://www.instagram.com/blockchainclub_cu/?utm_source=website',
+              href: 'https://www.instagram.com/tokentitan_cu/?utm_source=website',
               color: 'hover:text-pink-500',
             },
             {

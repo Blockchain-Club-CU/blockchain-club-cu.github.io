@@ -28,7 +28,7 @@ export const Hero = () => {
               className="text-4xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-gray-900 dark:text-white font-mono leading-tight flex flex-col items-center lg:items-start"
             >
               <span className="block mb-2 lg:mb-4">
-                <ScrambleText text="BLOCKCHAIN" delay={100} speed={1} />
+                <ScrambleText text="Tokentitan" delay={100} speed={1} />
               </span>{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10F480] to-teal-400 block">
                 <ScrambleText text="CLUB CU" delay={600} speed={1} />

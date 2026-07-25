@@ -70,7 +70,7 @@ export const Navbar = () => {
                 }}
               />
               <span className="text-gray-900 dark:text-white font-mono font-bold text-lg tracking-tighter transition-colors duration-300">
-                BLOCKCHAIN CLUB
+                Tokentitan CLUB
               </span>
             </div>
 

@@ -36,7 +36,7 @@ export const About = () => {
               }}
               className="mb-6"
             >
-              The <span className="font-semibold text-emerald-600 dark:text-[#10F480]">Blockchain Club Chandigarh University</span> is a student-driven ecosystem dedicated to demystifying decentralized technology.
+              The <span className="font-semibold text-emerald-600 dark:text-[#10F480]">Tokentitan Club Chandigarh University</span> is a student-driven ecosystem dedicated to demystifying decentralized technology.
             </motion.p>
             <motion.p
               variants={{

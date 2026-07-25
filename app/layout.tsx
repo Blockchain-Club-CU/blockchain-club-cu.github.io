@@ -8,9 +8,9 @@ import { BackgroundBeams } from './components/ui/BackgroundBeams';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'BCCU | Blockchain Club Chandigarh University',
+  title: 'Tokentitan Club Chandigarh University',
   description:
-    'A student-led community focused on learning Blockchain and Web3.',
+    'A student-led community focused on learning Tokentitan and Web3.',
 };
 
 export default function RootLayout({

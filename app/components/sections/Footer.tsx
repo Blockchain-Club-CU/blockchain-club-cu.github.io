@@ -14,13 +14,13 @@ export const Footer = () => {
             }}
           />
           <span className="text-gray-900 dark:text-gray-900 dark:text-white font-mono font-bold">
-            BCCU.
+            TCCU.
           </span>
         </div>
 
         <div className="text-gray-500 text-xs font-mono text-center md:text-right">
           <p>
-            &copy; {new Date().getFullYear()} Blockchain Club Chandigarh
+            &copy; {new Date().getFullYear()} Tokentitan Club Chandigarh
             University.
           </p>
           <p className="mt-1">Built by Students, for Students.</p>

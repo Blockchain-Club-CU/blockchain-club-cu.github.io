@@ -31,7 +31,7 @@ export const Chatbot = () => {
       text: (
         <div className="space-y-3">
           <p>
-            🚀 <strong>Welcome to Blockchain Club CU!</strong> I am your BCCU Assistant. 
+            🚀 <strong>Welcome to Tokentitan Club CU!</strong> I am your BCCU Assistant. 
             I can help you explore our active events, get our contact info, or learn more about our mission! 
           </p>
           <a
@@ -85,7 +85,7 @@ export const Chatbot = () => {
         botResponse = {
           id: (Date.now() + 1).toString(),
           sender: 'bot',
-          text: 'Blockchain Club CU is a student-led community focused on learning Blockchain and Web3 from fundamentals to real-world use.',
+          text: 'Tokentitan Club CU is a student-led community focused on learning Blockchain and Web3 from fundamentals to real-world use.',
         };
       } 
       // 2. Contact Info Match

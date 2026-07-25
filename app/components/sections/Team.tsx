@@ -2,7 +2,7 @@
 
 import { TEAM_MEMBERS } from '@/app/data/constants';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Linkedin, Users, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Users, ChevronLeft, ChevronRight } from 'lucide-react';
 import { SectionHeader } from '../ui/SectionHeader';
 import { useState, useEffect, useCallback } from 'react';
 import { SpotlightCard } from '../ui/SpotlightCard';
@@ -84,7 +84,7 @@ export const Team = () => {
             </h3>
             <p className="text-gray-600 dark:text-gray-400 max-w-md">
               Our core team is currently being finalized. Stay tuned to meet the
-              builders behind the Blockchain Club Chandigarh University!
+              builders behind the Tokentitan Club Chandigarh University!
             </p>
           </motion.div>
         ) : (
@@ -148,7 +148,7 @@ export const Team = () => {
                             rel="noopener noreferrer"
                             className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                           >
-                            <Linkedin size={18} />
+                            {/* <Linkedin size={18} /> */}
                           </a>
                         </div>
                       )}

@@ -6,6 +6,7 @@ import { Users, ChevronLeft, ChevronRight } from 'lucide-react';
 import { SectionHeader } from '../ui/SectionHeader';
 import { useState, useEffect, useCallback } from 'react';
 import { SpotlightCard } from '../ui/SpotlightCard';
+import LinkedinIcon from '../icons/LinkedIn';
 
 const CARDS_PER_PAGE = {
   sm: 1,
@@ -148,7 +149,8 @@ export const Team = () => {
                             rel="noopener noreferrer"
                             className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                           >
-                            {/* <Linkedin size={18} /> */}
+                            <LinkedinIcon size={18}
+                              className="mb-3  group-hover:text-inherit" />
                           </a>
                         </div>
                       )}
@@ -177,11 +179,10 @@ export const Team = () => {
                       setDirection(i > currentIndex ? 1 : -1);
                       setCurrentIndex(i);
                     }}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
-                      i === currentIndex
+                    className={`h-1.5 rounded-full transition-all duration-300 ${i === currentIndex
                         ? 'w-6 bg-[#10F480]'
                         : 'w-1.5 bg-gray-300 dark:bg-white/20 hover:bg-gray-400 dark:hover:bg-white/40'
-                    }`}
+                      }`}
                     aria-label={`Go to slide ${i + 1}`}
                   />
                 ))}

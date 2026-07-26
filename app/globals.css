@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 .text-gradient {
   background-color: #1c1c1c;
   color: #ffffff;
@@ -26,6 +22,34 @@ html {
     transition-property: background-color, color, border-color, fill, stroke;
     transition-duration: 300ms;
     transition-timing-function: ease;
+  }
+
+  .animate-marquee-left {
+    animation: marquee-left 60s linear infinite;
+  }
+
+  .animate-marquee-right {
+    animation: marquee-right 60s linear infinite;
+  }
+}
+
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
   }
 }
 

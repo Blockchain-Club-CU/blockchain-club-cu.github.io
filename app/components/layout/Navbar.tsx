@@ -61,7 +61,7 @@ export const Navbar = () => {
               <img
                 src="/logo.png"
                 alt="BCCU Logo"
-                className="w-10 h-10 object-contain dark:brightness-10 0 transition-all duration-300"
+                className="w-10 h-10 object-contain dark:brightness-170 0 transition-all duration-300"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.onerror = null;

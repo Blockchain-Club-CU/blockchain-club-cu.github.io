@@ -1,6 +1,5 @@
 import { SectionHeader } from "../ui/SectionHeader";
 import { GalleryImages } from "@/app/data/constants";
-import Image from "next/image";
 
 export default function Gallery() {
     const half = Math.ceil(GalleryImages.length / 2);
@@ -18,7 +17,7 @@ export default function Gallery() {
 
             <div className="flex flex-col gap-6">
                 <div className="relative flex overflow-hidden">
-                    <div className="flex w-max animate-marquee-left gap-6 px-3 hover:[animation-play-state:paused]">
+                    <div className="flex min-w-max shrink-0 animate-marquee-left gap-6 px-3 hover:[animation-play-state:paused] will-change-transform">
                         {[...upperImages, ...upperImages].map((src, idx) => (
                             <div key={idx} className="relative w-72 h-48 md:w-96 md:h-64 rounded-lg overflow-hidden shrink-0">
                                 <img
@@ -33,7 +32,7 @@ export default function Gallery() {
                 </div>
 
                 <div className="relative flex overflow-hidden">
-                    <div className="flex w-max animate-marquee-right gap-6 px-3 hover:[animation-play-state:paused]">
+                    <div className="flex min-w-max shrink-0 animate-marquee-right gap-6 px-3 hover:[animation-play-state:paused] will-change-transform">
                         {[...lowerImages, ...lowerImages].map((src, idx) => (
                             <div key={`lower-${idx}`} className="relative w-72 h-48 md:w-96 md:h-64 rounded-lg overflow-hidden shrink-0">
                                 <img

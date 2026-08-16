@@ -15,13 +15,6 @@ interface AboutItem {
 
 export const TEAM_MEMBERS: MemberItem[] = [
   {
-    id: 1,
-    name: 'Aman Kumar Jha',
-    role: 'Secretary',
-    image: '/team/secretary.webp',
-    // linkedin: 'https://www.linkedin.com/in/aman-kumar-jha-1a0b4b1b9/',
-  },
-  {
     id: 2,
     name: 'Rahul Raj Jaiswal',
     role: 'Joint Secretary',
@@ -33,13 +26,6 @@ export const TEAM_MEMBERS: MemberItem[] = [
     name: 'Shivam Prasad',
     role: 'Vice President',
     image: '/team/vice_president.webp',
-    // linkedin: '#',
-  },
-  {
-    id: 4,
-    name: 'Ayush Bansal',
-    role: 'Club Manager',
-    image: '/team/club_manager.webp',
     // linkedin: '#',
   },
   // {

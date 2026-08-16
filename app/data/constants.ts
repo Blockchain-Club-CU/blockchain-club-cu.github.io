@@ -23,16 +23,16 @@ export const TEAM_MEMBERS: MemberItem[] = [
   },
   {
     id: 2,
-    name: 'Shivam Prasad',
-    role: 'Vice President',
-    image: '/team/vice_president.webp',
+    name: 'Rahul Raj Jaiswal',
+    role: 'Joint Secretary',
+    image: '/team/joint_secretary.webp',
     // linkedin: '#',
   },
   {
     id: 3,
-    name: 'Rahul Raj Jaiswal',
-    role: 'Joint Secretary',
-    image: '/team/joint_secretary.webp',
+    name: 'Shivam Prasad',
+    role: 'Vice President',
+    image: '/team/vice_president.webp',
     // linkedin: '#',
   },
   {

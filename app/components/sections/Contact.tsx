@@ -40,7 +40,7 @@ export const Connect = () => {
             {
               icon: Mail,
               label: 'Email',
-              href: 'mailto:cublockchainclub@gmail.com',
+              href: 'mailto:tokentitanclub.cu@gmail.com',
               color: 'hover:text-red-500 ',
             },
           ].map((item, i) => (
